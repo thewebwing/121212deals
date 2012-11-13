@@ -19,5 +19,6 @@ Included are the following:
 + settings.php (Just a separate area for misc. settings instead of config.php)
 + User_Controller - Base controller that requires a person to be logged in
 + Admin_Controller - Base controller that requires a person to be logged in and be an admin
++ Image_moo - Image manipulation library, see: http://www.matmoo.com/digital-dribble/codeigniter/image_moo/
 
 If you'd like, you can reach me at http://www.infinitywebcreations.com/.
