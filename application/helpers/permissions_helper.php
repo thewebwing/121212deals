@@ -7,5 +7,5 @@
 function get_user_id()
 {
 	$CI =& get_instance();
-	return $this->session->userdata('user_id');
+	return $CI->session->userdata('user_id');
 }
