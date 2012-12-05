@@ -13,7 +13,7 @@ class Deal_model extends CI_Model {
     
     function get_deals()
     {
-        $query = $this->db->get('deal');
+        $query = $this->db->get('deals');
         return $query->result();
     }
 
@@ -23,7 +23,7 @@ class Deal_model extends CI_Model {
         $this->content = $_POST['content'];
         $this->date    = time();
 
-        $this->db->insert('deal', $this);
+        $this->db->insert('deals', $this);
     }
 
     function update_entry()
@@ -32,7 +32,7 @@ class Deal_model extends CI_Model {
         $this->content = $_POST['content'];
         $this->date    = time();
 
-        $this->db->update('deal', $this, array('id' => $_POST['id']));
+        $this->db->update('deals', $this, array('id' => $_POST['id']));
     }
 
 }
