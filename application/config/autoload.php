@@ -1,7 +1,4 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-date_default_timezone_set('America/Chicago');
-require_once(dirname(__FILE__) . '/native_autoload.php');
-
 /*
 | -------------------------------------------------------------------
 | AUTO-LOADER
@@ -55,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database','session','typography','form_validation','email','pagination');
+$autoload['libraries'] = array();
 
 
 /*
@@ -67,7 +64,7 @@ $autoload['libraries'] = array('database','session','typography','form_validatio
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url','form','html','date','permissions');
+$autoload['helper'] = array();
 
 
 /*
@@ -83,7 +80,7 @@ $autoload['helper'] = array('url','form','html','date','permissions');
 |
 */
 
-$autoload['config'] = array('settings');
+$autoload['config'] = array();
 
 
 /*
