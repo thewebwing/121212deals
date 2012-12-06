@@ -1,5 +1,5 @@
 <?php
-class Deal_model extends CI_Model {
+class Deals_model extends CI_Model {
 
     var $title   = '';
     var $content = '';
