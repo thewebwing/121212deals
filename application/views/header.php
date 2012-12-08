@@ -14,5 +14,6 @@
 
         <link rel="stylesheet" href="<?=site_url();?>css/main.css">
         <script src="<?=site_url();?>js/vendor/modernizr-2.6.2.min.js"></script>
+        <?php if(isset($map['js'])) : echo $map['js']; endif; ?>
     </head>
     <body>

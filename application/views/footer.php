@@ -4,9 +4,13 @@
         <script src="<?=site_url();?>js/plugins.js"></script>
         <script src="<?=site_url();?>js/main.js"></script>
         <script>
-            window.mySwipe = new Swipe(
-              document.getElementById('slider')
-            );
+            if (Modernizr.touch){
+               window.mySwipe = new Swipe(
+                  document.getElementById('slider')
+               );
+            } else {
+
+            }
         </script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

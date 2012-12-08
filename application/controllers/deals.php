@@ -18,6 +18,7 @@ class Deals extends MY_Controller
     public function test()
     {
         $data['deals'] = $this->Deals->get_deals();
+        
         $this->master_view('deals/index', $data);
     }
     
