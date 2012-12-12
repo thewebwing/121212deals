@@ -347,7 +347,7 @@ form.form_box .button
 }
 
 .instructions {
-    padding:0 0.5em;
+    padding:0 0 0 0.5em;
     font-size:1.0em;
 }
 
@@ -420,7 +420,7 @@ form.form_box .button
 
 @media only screen and (min-width:540px) {
     body {
-        padding:0 1.5em;
+        padding:0 0 0 1.5em;
     }
     form.form_box {
         max-width:800px;
