@@ -8,17 +8,12 @@
 
             <?php if ($deal->address_1) : ?>
                 <address>
-                  <div class="street"><?=$deal->address_1;?><?php if($deal->address_2) : echo ', '.$deal->address_2; endif;?></div>
+                  <a class="cupid-green" href="<?=site_url().'deals/single/'.$deal->id;?>">Map</a>
+                  <div class="cb street"><?=$deal->address_1;?><?php if($deal->address_2) : echo ', '.$deal->address_2; endif;?></div>
                   <div class="state"><?=$deal->city;?>, <?=$deal->state;?>  <?=$deal->zip_code;?></div>
                   <div class="telnum"><a href="<?='tel:'.$deal->phone;?>"><?=$deal->phone_formatted;?></a></div>
                </address>
            <?php endif; ?>
-            <div class="map">
-                <?php if(isset($deal->map['map'])) :
-                    echo $deal->map['map']['js'];
-                    echo $deal->map['map']['html'];
-                endif; ?>
-            </div>
         </div>
     <?php endforeach; ?>
     <div id="submit_deal_box" class="deal single_deal_submit">
