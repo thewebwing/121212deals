@@ -1,4 +1,4 @@
-<div id="welcome_box">
+<div id="welcome_box" class="deal">
 <img class="spot12" src="<?=site_url();?>img/12.12.12-spot.png">
 	<h1>Get Great Deals on 12.12.12</h1>
 	<div class="information">

@@ -1,16 +1,35 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
         <script src="<?=site_url();?>js/swipe.min.js"></script>
+        <script src="<?=site_url();?>js/jquery.isotope.min.js"></script>
         <script src="<?=site_url();?>js/plugins.js"></script>
         <script src="<?=site_url();?>js/main.js"></script>
         <script>
-            if (Modernizr.touch){
+/**            if (Modernizr.touch){
                window.mySwipe = new Swipe(
                   document.getElementById('slider')
                );
             } else {
 
             }
+*/
+            $('#container').isotope({
+                itemSelector : '.deal',
+                masonry : {
+                  columnWidth : 120
+                },
+                masonryHorizontal : {
+                  rowHeight: 120
+                },
+                cellsByRow : {
+                  columnWidth : 240,
+                  rowHeight : 240
+                },
+                cellsByColumn : {
+                  columnWidth : 240,
+                  rowHeight : 240
+                }
+            });
         </script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

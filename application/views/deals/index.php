@@ -1,29 +1,32 @@
 <?php //var_dump($deals); ?>
-<div id="slider">
-    <ul>
-        <?php foreach ($deals as $key => $deal) : ?>
-            <?php if ($key > 0) :
-                $visible = 'display:none';
-            else :
-                $visible = 'display:block';
-            endif; ?>
-            <li class="single_deal" style='<?=$visible?>;'>
-                <h1><?=$deal->business_name;?></h1>
-                <h2><?=$deal->title;?></h2>
-                <p><?=$deal->description;?></p>
-                <p><?=$deal->address_1;?></p>
-                <p><?=$deal->address_2;?></p>
-                <p><?=$deal->city;?></p>
-                <p><?=$deal->state;?></p>
-                <p><?=$deal->zip_code;?></p>
-                <p><?=$deal->phone;?></p>
-                <div class="map">
-                    <?php if(isset($deal->map['map'])) :
-                        echo $deal->map['map']['js'];
-                        echo $deal->map['map']['html'];
-                    endif; ?>
-                </div>
-            </li>
-        <?php endforeach; ?>
-    </ul>
+<div id="container">
+    <?php foreach ($deals as $key => $deal) : ?>
+        <div class="deal <?=$deal->tags;?>">
+            <h1><?=anchor("deals/single/$deal->id", $deal->business_name);?></h1>
+            <h2><?=$deal->title;?></h2>
+            <p><?=$deal->description;?></p>
+
+            <?php if ($deal->address_1) : ?>
+                <address>
+                  <div class="street"><?=$deal->address_1;?><?php if($deal->address_2) : echo ', '.$deal->address_2; endif;?></div>
+                  <div class="state"><?=$deal->city;?>, <?=$deal->state;?>  <?=$deal->zip_code;?></div>
+                  <div class="telnum"><a href="<?='tel:'.$deal->phone;?>"><?=$deal->phone_formatted;?></a></div>
+               </address>
+           <?php endif; ?>
+            <div class="map">
+                <?php if(isset($deal->map['map'])) :
+                    echo $deal->map['map']['js'];
+                    echo $deal->map['map']['html'];
+                endif; ?>
+            </div>
+        </div>
+    <?php endforeach; ?>
+    <div id="submit_deal_box" class="deal single_deal_submit">
+    <img class="spot12" src="<?=site_url();?>img/12.12.12-spot.png">
+        <h1>Don't see your deal here?</h1>
+        <p> Submit one below and spread the word!</p>
+        <div class="information">
+            <div class="indent"><a href="<?=site_url()?>deals/submit" class="minimal-indent">Submit A Deal</a></div>
+        </div>
+    </div>
 </div><!-- #slider -->

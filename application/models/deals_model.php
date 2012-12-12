@@ -15,18 +15,52 @@ class Deals_model extends CI_Model {
     {
         $this->db->select('*');
         $this->db->from('deals');
+        $this->db->where('approved', 1);
         $this->db->join('coords', 'coords.deal_id = deals.id', 'left');
         $query = $this->db->get();
         foreach ($query->result() as $deal) :
-            $deal->phone = $this->format_phone($deal->phone);
-            /** if(!$deal->lat || !$deal->lng):
+            $deal->phone_formatted = $this->format_phone($deal->phone);
+            $deal->tags = '';
+            /**if(!$deal->lat || !$deal->lng):
                 $address_array = array($deal->address_1, $deal->address_2, $deal->city, $deal->state, $deal->zip_code);
                 $deal->map = $this->deal_map($address_array, $deal->id, TRUE);
             else:
                 $coords = array($deal->lat, $deal->lng);
                 $deal->map = $this->deal_map($coords, $deal->id);
-            endif;**/
+            endif;*/
         endforeach;
+
+        return $query->result();
+    }
+    
+    function get_single_deal()
+    {
+        $this->db->select('*');
+        $this->db->from('deals');
+        $this->db->where('id', $this->uri->segment(3));
+        $this->db->join('coords', 'coords.deal_id = deals.id', 'left');
+        $query = $this->db->get();
+        foreach ($query->result() as $deal) :
+            $deal->phone_formatted = $this->format_phone($deal->phone);
+            $deal->tags = '';
+            if(!$deal->lat || !$deal->lng):
+                $address_array = array($deal->address_1, $deal->address_2, $deal->city, $deal->state, $deal->zip_code);
+                $deal->map = $this->deal_map($address_array, $deal->id);
+            else:
+                $coords = array($deal->lat, $deal->lng);
+                $deal->map = $this->deal_map($coords, $deal->id);
+            endif;
+        endforeach;
+        return $query->result();
+
+    }
+
+    function get_submissions()
+    {
+        $this->db->select('*');
+        $this->db->from('deals');
+        $this->db->where('approved', NULL);
+        $query = $this->db->get();
 
         return $query->result();
     }
@@ -101,7 +135,7 @@ class Deals_model extends CI_Model {
         /** $this->load->model('map_model', '', TRUE); */
         // Initialize the map, passing through any parameters
         $config['center'] = $coords;
-        $config['zoom'] = "auto";
+        $config['zoom'] = 17;
         $config['map_div_id'] = 'map_canvas'.$deal_id;
         $this->googlemaps->initialize($config);
         // Get the co-ordinates from the database using our model

@@ -112,16 +112,41 @@ body {
     background-attachment:fixed;
     height:100%;
     margin:0;
-    padding:0;
-    background-image:none;
+    padding:0 0.5em;
 }
 
 h1 {
     text-align: center;
-    font-size:3.0em;
+    font-size:1.5em;
+    margin-top:0;
+    line-height:1.15;
+    word-wrap: break-word;
+}
+h1 a {
+    color:#500000;
+    text-decoration:none;
+}
+h2 {
+    font-size:0.9em;
 }
 ul {
     padding:0;
+}
+address {
+    float:right;
+}
+address .telnum a {
+    text-decoration:none;
+    color:#000;
+    cursor:default;
+    
+}
+.single_deal .spot12 {
+    width:40%;
+    height:auto;
+    padding:0 0.75em 0.5em 0;
+    float:left;
+    margin:0;
 }
 .spot12 {
     width:60%;
@@ -129,18 +154,32 @@ ul {
     padding:0 20%;
     margin-top:-11em;
 }
-
+#deal_footer {
+    background-color:#eee;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:70px;
+    width:100%;
+}
+#deal_footer .spot12 {
+    width:80px;
+    height:auto;
+    float:left;
+    padding:10px 0 0 10px;
+    margin:0;
+    
+}
+#deal_footer .minimal-indent {
+    margin-top:15px;
+}
 #welcome_box {
     margin:10em auto 0;
     max-width:500px;
-    background:#eee;
-    border:1px solid #dedede;
-    border-radius:0.5em;
-    padding: 1.5em 1.5em 0.5em;
 }
 
-#submit_deal_page {
-
+#submit_deal_box {
+    margin-top:10em;
 }
 
 #submit_deal_page h1 {
@@ -175,7 +214,8 @@ ul {
   margin: 0;
   padding: 7px 0;
   text-shadow: 0 1px 1px #fff;
-  width: 12em; }
+  width:85%;
+  max-width: 12em; }
   .minimal-indent:hover {
     background-color: #e5e5e5;
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e5e5e5), color-stop(50%, #d1d1d1), color-stop(50%, #c4c4c4), color-stop(100%, #b8b8b8));
@@ -206,7 +246,8 @@ div.indent {
   border-radius: 8px;
   margin: 50px auto 0;
   padding: 10px 0;
-  width: 20em; }
+  width:95%;
+  max-width: 20em; }
 
 /*
  * Submit Deal
@@ -313,58 +354,37 @@ form.form_box .button
 .instructions p:first-child {
     margin-top:0.25em;
 }
-@media only screen and (max-width:500px) {
-    input, textarea, select {
-        font-size:1.5em;
-        width:90%;
-        margin: 0 5%;
-    }
-    form.form_box label span {
-        width:90%;
-        text-align:center;
-        margin: 0 5%;
-    }
-}
-
-@media only screen and (min-width:800px) {
-    
-    form.form_box {
-        max-width:800px;
-        width:100%;
-    }
-    div.deal_info {
-        width:50%;
-        float:left;
-    }
-    div.business_info {
-        width:50%;
-        float:right;
-    }
-    #submit_deal_page {
-        margin-top:30px;
-    }
-
-    #submit_deal_page h1 {
-        text-align:center;
-        color:#eee;
-        font-size:3.0em;
-    }
-    .instructions {
-        font-size:1.25em;
-        padding:0 3.0em;
-    }
-
-}
 
 /*
  * Single Deals
  */
 
+.deal {
+    margin: 1em 0;
+    background:#eee;
+    border:1px solid #dedede;
+    border-radius:0.5em;
+    padding: 1.5em 1.0em 0.5em;
+    max-width:300px;
+    overflow: auto;
+}
+.single_view {
+    padding-top:1em;
+    padding-bottom: 150px;
+}
 .single_deal {
-    margin: 0 auto;
-    background-color:#B3D4FC;
-    #width:85%;
-    #max-width:500px;
+    box-sizing:content-box;
+    max-width:500px;
+    margin:0 auto;
+}
+.single_deal .description {
+    clear:both;
+}
+.single_deal_submit {
+    overflow:visible;
+}
+.map {
+    margin-top:1.0em;
 }
 
 /*
@@ -384,6 +404,60 @@ form.form_box .button
   font-size:20px;
   text-align:center;
 }
+
+@media only screen and (max-width:500px) {
+    input, textarea, select {
+        font-size:1.5em;
+        width:90%;
+        margin: 0 5%;
+    }
+    form.form_box label span {
+        width:90%;
+        text-align:center;
+        margin: 0 5%;
+    }
+}
+
+@media only screen and (min-width:540px) {
+    body {
+        padding:0 1.5em;
+    }
+    form.form_box {
+        max-width:800px;
+        width:100%;
+    }
+    h1 {
+        text-align: center;
+        font-size:2.5em;
+        margin-top:0;
+        line-height:1.15;
+    }
+    h2 {
+        font-size:1.8em;
+    }
+    div.deal_info {
+        width:50%;
+        float:left;
+    }
+    div.business_info {
+        width:50%;
+        float:right;
+    }
+    #submit_deal_page {
+        margin-top:30px;
+    }
+
+    #submit_deal_page h1 {
+        text-align:center;
+        color:#eee;
+        font-size:3.5em;
+    }
+    .instructions {
+        font-size:1.25em;
+        padding:0 3.0em;
+    }
+}
+
 
 
 
@@ -461,6 +535,16 @@ form.form_box .button
 
 .invisible {
     visibility: hidden;
+}
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
 }
 
 /*
@@ -580,3 +664,57 @@ form.form_box .button
         page-break-after: avoid;
     }
 }
+
+/* Start: Recommended Isotope styles */
+
+/**** Isotope Filtering ****/
+
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/**** Isotope CSS3 transitions ****/
+
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration: 0.8s;
+     -moz-transition-duration: 0.8s;
+      -ms-transition-duration: 0.8s;
+       -o-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+      -ms-transition-property:     -ms-transform, opacity;
+       -o-transition-property:      -o-transform, opacity;
+          transition-property:         transform, opacity;
+}
+
+/**** disabling Isotope CSS3 transitions ****/
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+     -moz-transition-duration: 0s;
+      -ms-transition-duration: 0s;
+       -o-transition-duration: 0s;
+          transition-duration: 0s;
+}
+
+/* End: Recommended Isotope styles */

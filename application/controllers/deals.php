@@ -13,13 +13,26 @@ class Deals extends MY_Controller
 
     public function index()
     {
-        redirect('welcome');
-    }
-    public function test()
-    {
         $data['deals'] = $this->Deals->get_deals();
-        
+        shuffle($data['deals']);
         $this->master_view('deals/index', $data);
+    }
+    
+    public function single()
+    {
+        $data['deals'] = $this->Deals->get_single_deal();
+        $this->master_view('deals/single', $data);
+    }
+    
+    public function pending()
+    {
+        $data['deals'] = $this->Deals->get_submissions();
+        foreach ($data['deals']  as $key => $deal) : ?>
+            <div>
+                <h1><?=anchor("deals/single/$deal->id", $deal->business_name);?></h1>
+                <h2><?=$deal->title;?></h2>
+            </div>
+        <?php endforeach;
     }
     
     public function submit()
